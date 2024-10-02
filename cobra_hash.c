@@ -67,6 +67,17 @@ void cobra_custom_hash(FILE *file, unsigned char *outputBuffer) {
     sprintf((char *)outputBuffer, "%016llx%016llx%016llx%016llx", H0_temp, H1_temp, H2_temp, H3_temp);
 }
 
+void print_ascii_art() {
+    printf("\033[1;31m");
+    printf("   _____      _               _    _           _     \n");
+    printf("  / ____|    | |             | |  | |         | |    \n");
+    printf(" | |     ___ | |__  _ __ __ _| |__| | __ _ ___| |__  \n");
+    printf(" | |    / _ \\| '_ \\| '__/ _` |  __  |/ _` / __| '_ \\ \n");
+    printf(" | |___| (_) | |_) | | | (_| | |  | | (_| \\__ \\ | | |\n");
+    printf("  \\_____\\___/|_.__/|_|  \\__,_|_|  |_|\\__,_|___/_| |_|\n");
+    printf("\033[0m\n");
+}
+
 void print_help() {
     printf("\033[1;32mUsage: cobra_hash [options] <filename>\n\033[0m");
     printf("Options:\n");
@@ -121,6 +132,7 @@ bool check_hash(const char *input_hash, FILE *file) {
 }
 
 int main(int argc, char **argv) {
+    print_ascii_art();
     if (argc < 2) {
         print_help();
         return 1;
